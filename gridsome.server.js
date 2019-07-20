@@ -22,9 +22,9 @@ class WordPressSource {
       typeName: 'WordPress',
       splitPostsIntoFragments: true, // Split html posts into fragments representing html blocks or images
       downloadRemoteImagesFromPosts: true, // Download remote images from the post body
-      postImagesLocalPath: 'src/assets/img/',
+      postImagesLocalPath: path.resolve('src/assets/img/'),
       downloadRemoteFeaturedImages: true, // Download featured images
-      featuredImagesLocalPath: 'src/assets/img/', // Path to store featured images
+      featuredImagesLocalPath: path.resolve('src/assets/img/'), // Path to store featured images
     }
   }
 
