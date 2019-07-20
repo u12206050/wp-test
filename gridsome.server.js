@@ -11,7 +11,7 @@ const TYPE_ATTACHEMENT = 'attachment'
 class WordPressSource {
   static defaultOptions () {
     return {
-      baseUrl: 'https://ragamikan.com',
+      baseUrl: 'https://ragamikan.com/',
       apiBase: 'wp-json',
       perPage: 100,
       concurrent: 10,
@@ -193,7 +193,7 @@ class WordPressSource {
           fragmentData: { 
             remoteUrl: fragment,
             fileName: fileName,
-            image: (path.resolve('./src/assets/img/' + fileName) ),
+            image: (this.options.postImagesLocalPath + fileName),
             alt: image.alt
           }
         }
@@ -262,7 +262,7 @@ class WordPressSource {
               this.options.featuredImagesLocalPath,
               featuredImageFileName
             )
-            fields.featuredMediaImage = path.resolve('./src/assets/img/' + featuredImageFileName)
+            fields.featuredMediaImage = this.options.featuredImagesLocalPath + featuredImageFileName
           } catch (err) {
             console.log('WARNING - No featured image for post '+post.slug) 
           }
