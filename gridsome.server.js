@@ -22,9 +22,9 @@ class WordPressSource {
       typeName: 'WordPress',
       splitPostsIntoFragments: true, // Split html posts into fragments representing html blocks or images
       downloadRemoteImagesFromPosts: true, // Download remote images from the post body
-      postImagesLocalPath: 'src/assets/img/',
+      postImagesLocalPath: 'wp-image/',
       downloadRemoteFeaturedImages: true, // Download featured images
-      featuredImagesLocalPath: 'src/assets/img/', // Path to store featured images
+      featuredImagesLocalPath: 'wp-image/', // Path to store featured images
     }
   }
 
@@ -193,7 +193,7 @@ class WordPressSource {
           fragmentData: { 
             remoteUrl: fragment,
             fileName: fileName,
-            image: (path.resolve('./src/assets/img/' + fileName) ),
+            image: (path.resolve('wp-image/' + fileName ) ),
             alt: image.alt
           }
         }
@@ -262,7 +262,7 @@ class WordPressSource {
               this.options.featuredImagesLocalPath,
               featuredImageFileName
             )
-            fields.featuredMediaImage = path.resolve('./src/assets/img/' + featuredImageFileName) 
+            fields.featuredMediaImage = path.resolve('wp-image/' + featuredImageFileName)
           } catch (err) {
             console.log('WARNING - No featured image for post '+post.slug) 
           }
